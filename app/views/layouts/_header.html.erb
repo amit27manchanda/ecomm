@@ -1,0 +1,43 @@
+<header>
+<div class="navbar navbar-inverse navbar-static-top">
+  <div class="navbar-inner">
+  <div class="container">
+  <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span></button>
+  <div class="nav-collapse collapse">
+      <ul class="nav">
+        <li class="active"><%= link_to root_path do %><i class="icon-home"></i></li>
+        <% end %>
+        <li ><%= link_to "About Us", about_us_path %></li>
+        <li ><%= link_to "Contact Us", contact_us_path %></li>
+
+      </ul>
+  </div>
+  </div>
+  </div>
+</div>
+<div id="logo-container">
+  <div class="container">
+   <div class="row">
+   <div class="span8">
+    <a class="brand"><span class="logo-text">RAMZO</span></a>
+    <span class="tag-line hidden-phone">Place</span>
+    </div>
+    <div class="span4">
+    <div class="pull-right">
+    <% if user_signed_in? %>
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete , :class =>"btn btn-success" %>
+    <%= link_to "Sign Up", new_admin_registration_path, :class =>"btn btn-success" %>
+    <% else %>
+    <%= link_to "Sign Up", new_user_registration_path, :class =>"btn btn-success" %>&nbsp;&nbsp;
+    <%= link_to "Sign In", new_user_session_path, :class =>"btn btn-primary" %>
+    <% end%>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+</header>
