@@ -7,9 +7,11 @@
   <%= f.label :name %>
   <%= f.text_field :name, :placeholder => "Name"%>
   <%= f.label :price %>
-  <%= f.text_field :price, :placeholder => "" %></br>
+  <%= f.text_field :price, :placeholder => "Price" %></br>
   <%= f.label :Category %>
   <%= f.collection_select :category, Product::CATEGORY, :to_s, :humanize, :prompt => "Select One"%></br>
+  <%= f.label :Description%>
+  <%= f.text_area :description, :placeholder => "Description" %></br>
   <%= f.file_field :image %></br>
   <div style="margin: 10px 0 0 0;">
   <%= f.submit "Create Product", class: "btn btn-primary"%>

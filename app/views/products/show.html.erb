@@ -4,7 +4,7 @@
         <div class="span8">
           <div class="box-container">
             <div class="cycle-slideshow">
-           
+           <%= image_tag @product.image_url %>
             </div>
             <div id="adv-custom-pager"></div>
             <div class="clearfix">
@@ -21,8 +21,8 @@
               </ul>
               </div>
               <div class="clearfix padding30">
-                <h3>SCHOOL DESCRIPTION</h3>
-                <p></p>
+                <h3>PRODUCT DESCRIPTION</h3>
+                <p><%= @product.description %></p>
               </div>
             </div>
           </div>
