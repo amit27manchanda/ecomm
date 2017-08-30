@@ -7,7 +7,7 @@
   <%= f.label :name %>
   <%= f.text_field :name, :placeholder => "Name"%>
   <%= f.label :price %>
-  <%= f.text_field :price %></br>
+  <%= f.text_field :price, :placeholder => "" %></br>
   <%= f.label :Category %>
   <%= f.collection_select :category, Product::CATEGORY, :to_s, :humanize, :prompt => "Select One"%></br>
   <%= f.file_field :image %></br>
