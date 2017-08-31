@@ -6,7 +6,7 @@
 <%= form_for [@product, @review] do |f| %>
 <%= f.text_area :comment, :placeholder => "Comment Please!" %></br>
 <div style="margin: 10px 0 0 0;">
-<%= f.number_field :rating, :placeholder => "Rating Please!" %></br>
+<%= f.number_field :rating, value: 1, min:1, max:5, :placeholder => "Rating Please!" %></br>
 <div style="margin: 10px 0 0 0;">
 <%= f.submit "Create Review", class: "btn btn-primary" %>
 <% end %>
@@ -15,11 +15,10 @@
 </div>
 </div>
 </div>
-
-
-
-
-
-
-
+<script>
+$('#star-rating').raty({
+    path: '/assets',
+    scoreName: 'review[rating]'
+});
+</script>
 <%= render 'layouts/footer' %>
