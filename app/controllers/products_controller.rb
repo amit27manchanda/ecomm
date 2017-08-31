@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
 	def new
    	@product = Product.new
    end
@@ -15,6 +16,7 @@ end
 
    def show
    	@product= Product.find(params[:id])
+      @reviews= Review.where(product_id: @product)
    end
 
    private

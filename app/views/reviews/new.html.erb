@@ -1,5 +1,25 @@
+<%= render 'layouts/header' %>
+<div class="container">
+<div class="row">
+<div style= "margin: 30px 20px;">
+<h2>Give your Reviews here!</h2>
 <%= form_for [@product, @review] do |f| %>
-<% f.text_area :comment %>
-<%= f.number_field :rating %>
-<%= f.submit, class: "btn btn-primary" %>
+<%= f.text_area :comment, :placeholder => "Comment Please!" %></br>
+<div style="margin: 10px 0 0 0;">
+<%= f.number_field :rating, :placeholder => "Rating Please!" %></br>
+<div style="margin: 10px 0 0 0;">
+<%= f.submit "Create Review", class: "btn btn-primary" %>
 <% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<%= render 'layouts/footer' %>

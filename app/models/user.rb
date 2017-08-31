@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   ROLES = %w[customer inventory_manager].freeze    
 
-  validates_presence_of :role   
+  has_many :reviews  
 end
