@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
    	 if @product.save
    	 	redirect_to @product
    	 else
+         flash[:danger] = @product.errors.full_messages.to_sentence
    	     render 'new'
    end
 end

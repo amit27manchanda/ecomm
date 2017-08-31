@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  ROLES = %w[customer inventory_manager].freeze       
+  ROLES = %w[customer inventory_manager].freeze    
+
+  validates_presence_of :role   
 end

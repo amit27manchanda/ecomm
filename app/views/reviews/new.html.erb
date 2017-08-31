@@ -1,0 +1,5 @@
+<%= form_for [@product, @review] do |f| %>
+<% f.text_area :comment %>
+<%= f.number_field :rating %>
+<%= f.submit, class: "btn btn-primary" %>
+<% end %>

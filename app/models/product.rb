@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-     CATEGORY = %w[mobile laptop tablet].freeze
+     CATEGORY = %w[Mobile Laptop Tablet].freeze
 
 has_many :reviews
 validates_uniqueness_of :name

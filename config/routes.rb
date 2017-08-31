@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :products
+  resources :products do
+  	resources :reviews, except: [:index, :show]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
    root 'home#index'
    match '/about_us',   to: 'home#about_us',   via: :get
