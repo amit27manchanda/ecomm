@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
    	 if @product.save
    	 	redirect_to @product
    	 else
-         flash[:danger] = @product.errors.full_messages.to_sentence
    	     render 'new'
    end
 end
@@ -21,8 +20,8 @@ end
          @avg_rating = 0
       else
          @avg_rating = @reviews.average(:rating).round(2)
-      end
    end
+end
 
    private
    def product_params

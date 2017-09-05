@@ -10,7 +10,7 @@
      <div class="clearfix">
        <div class="clearfix padding30">
         <h2 class="prop-title pull-left margin0"><%= @product.name %></h2>
-        <span class="prop-price pull-right serif italic star-rating" data-score= <%= @avg_rating %> ></span>
+        <span class="prop-price pull-right serif italic star-rating" data-score=<%= @avg_rating %>></span>
        </div>
      <div class="clearfix padding030 row-fluid">
         <ul class="more-info pull-left span6">
@@ -34,8 +34,27 @@
      <div class="clearfix padding30">
       <%= link_to "Write a review", new_product_review_path(@product), :class=>"btn btn-small btn-realto" %>
         <h3>Review</h3>
+        <% if @reviews.blank? %>
+        <p> No reviews yet! </p>
+        <% else %>
+        <table class="table">
+        <thead>
+        <tr>
+         <th class="col-md-3"></th>
+         <th class="col-md-9"></th>
+         </tr>
+         </thead>
+         <tbody>
        <% @reviews.each do |review| %>
+       <tr>
+       <td><h5><%= "#{review.user.email}" %></h5></td>
+       <td><div class="star-rating" data-score=<%= review.rating %>></div>
        <%= review.comment %>
+       </td>
+       </tr>
+       <% end %>
+       </tbody>
+       </table>
        <% end %>
      </div>
      </div>
@@ -44,7 +63,6 @@
         <!-- .span8 -->
      <div class="span4">
        <div class="agent-box widget box-container clearfix padding30">
-         
          <a class="btn btn-large btn-realto span2" href="#" title="Buy It Now">Buy It Now!</a>
          </div>
        </div>
