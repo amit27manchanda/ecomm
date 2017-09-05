@@ -1,0 +1,8 @@
+<%= render 'layouts/header' %>
+<% @products.each do |product| %>
+<%= link_to product.name, product %>
+<% end %>
+<%= render 'layouts/footer' %>
+
+
+  

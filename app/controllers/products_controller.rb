@@ -20,8 +20,12 @@ end
          @avg_rating = 0
       else
          @avg_rating = @reviews.average(:rating).round(2)
+      end
    end
-end
+
+   def search
+      @products= Product.search(params)
+   end
 
    private
    def product_params
