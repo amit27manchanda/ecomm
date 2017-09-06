@@ -75,6 +75,13 @@
    <span class="pull-left">Price:</span>
    <span class="qty pull-right"><%= product.price %></span>
    </li>
+   <li class="info-label clearfix">
+        <span class="pull-left">Review:</span>
+        <% if product.reviews.present? %>
+        <span class="qty pull-right star-rating" data-score=<%= product.reviews.average(:rating) %>></span>
+        <% else %>
+        <span class="qty pull-right">No reviews yet!</span>
+        <% end %>
    </ul>
    </div>
    </div>
@@ -104,6 +111,13 @@
    <span class="pull-left">Price:</span>
    <span class="qty pull-right"><%= product.price %></span>
    </li>
+   <li class="info-label clearfix">
+        <span class="pull-left">Review:</span>
+        <% if product.reviews.present? %>
+        <span class="qty pull-right star-rating" data-score=<%= product.reviews.average(:rating) %>></span>
+        <% else %>
+        <span class="qty pull-right">No reviews yet!</span>
+        <% end %>
    </ul>
    </div>
    </div>
@@ -210,5 +224,14 @@
                 <!-- .span4  -->
             </div>
         </div>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
 <%= render 'layouts/footer' %>
 
