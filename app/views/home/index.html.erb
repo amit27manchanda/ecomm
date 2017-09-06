@@ -81,69 +81,41 @@
    </li>
    <% end %>
    </ul>
-   <li class="span4 box-container">
+   </div><!-- .item -->
+  
+   <div class="item">
+  <ul class="thumbnails">
+  <%= @products.order(:id).reverse_order.limit(3).offset(3).each do |product| %>
+  <li class="span4 box-container">
+  <div class="holder">
+  <a class="overlay" title="property title" href="#">
+  <span class="more"></span>
+  <%= link_to image_tag(product.image_url(:thumb)), product %>
+  </a>
+  <span class="prop-tag">Buy</span>
+  <div class="prop-info">
+   <h3 class="prop-title"><%= link_to product.name, product %></h3>
+   <ul class="more-info clearfix">
+   <li class="info-label clearfix">
+   <span class="pull-left">Category:</span>
+   <span class="qty pull-right"><%= product.category %></span>
+   </li>
+   <li class="info-label clearfix">
+   <span class="pull-left">Price:</span>
+   <span class="qty pull-right"><%= product.price %></span>
    </li>
    </ul>
-   </div><!-- .item -->
-   <div class="item">
-                       <ul class="thumbnails">
-                           <li class="span4 box-container">
-                            <div class="holder">
-                                   <a class="overlay" title="property title" href="#">
-                                    <span class="more"></span>
-                                    <img alt="image" src="images/04.jpg" class="media-object" />
-                                   </a>
-                                   <span class="prop-tag">For Rent</span>
-                                   <div class="prop-info">
-                                       <h3 class="prop-title">1290 Collins Avenue Miami Beach 33139 FL</h3>
-                                       <ul class="more-info clearfix">
-                                           <li class="info-label clearfix"><span class="pull-left">Beds:</span> <span class="qty pull-right">4</span></li>
-                                           <li class="info-label clearfix"><span class="pull-left">Baths:</span> <span class="qty pull-right">2</span></li>
-                                       </ul>
-                                   </div>
-                               </div>
-                           </li>
-                           <li class="span4 box-container">
-                            <div class="holder">
-                                   <a class="overlay" title="property title" href="#">
-                                    <span class="more"></span>
-                                    <img alt="image" src="images/06.jpg" class="media-object" />
-                                   </a>
-                                   <span class="prop-tag">For Sale</span>
-                                   <div class="prop-info">
-                                       <h3 class="prop-title">6253 Jefferson Avenue Los Angeles 33139 CA</h3>
-                                       <ul class="more-info clearfix">
-                                           <li class="info-label clearfix"><span class="pull-left">Beds:</span> <span class="qty pull-right">4</span></li>
-                                           <li class="info-label clearfix"><span class="pull-left">Baths:</span> <span class="qty pull-right">2</span></li>
-                                       </ul>
-                                   </div>
-                               </div>
-                           </li>
-                           <li class="span4 box-container">
-                            <div class="holder">
-                                   <a class="overlay" title="property title" href="#">
-                                    <span class="more"></span>
-                                    <img alt="image" src="images/07.jpg" class="media-object" />
-                                   </a>
-                                   <span class="prop-tag">For Rent</span>
-                                   <div class="prop-info">
-                                       <h3 class="prop-title">7654 West Avenue Miami Beach 33139 FL</h3>
-                                       <ul class="more-info clearfix">
-                                           <li class="info-label clearfix"><span class="pull-left">Beds:</span> <span class="qty pull-right">4</span></li>
-                                           <li class="info-label clearfix"><span class="pull-left">Baths:</span> <span class="qty pull-right">2</span></li>
-                                       </ul>
-                                   </div>
-                               </div>
-                           </li>
-                       </ul>
-                     </div><!-- .item -->
-                           
-                  </div><!-- .carousel-inner -->
-              </div>
-          </div><!--End Carousel-->
-          
-         </div><!-- .container  -->
-        </div><!-- #latest-properties  -->
+   </div>
+   </div>
+   </li>
+   <% end %>
+  </ul>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div><!-- #latest-properties  -->
         
         
         <!-- #latest-properties  -->
@@ -230,111 +202,9 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="span12 box-container">
-                    <div class="row adv-message clearfix">
-                        <div class="pull-left span7">
-                            <p class="upper-line serif italic">Realto xHTML/CSS Template is The
-                                Best Solution To Sell House Online</p>
-                            <p class="lower-line">This template is appropriate for Real Estate
-                                Company, who need to do their business online via websites.</p>
-                        </div>
-                        <!-- .pull-left -->
-                        <a class="pull-right btn btn-large btn-realto span3" href="#" title="Buy It Now">Buy
-                            It Now!</a>
-                    </div>
-                    <!-- .adv-message  -->
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="span8">
-                    <h2 class="secion-title">Meet our agents</h2>
-                    <div class="row">
-                        <div class="span2">
-                            <div class="home-agents widget">
-                                <a class="overlay" href="#" title="agent name">
-                                    <span class="more"></span>
-                                    <img alt="image" class="media-object" src="images/agent-01.jpg" />
-                                </a>
-                                <p class="home-agent-name">John Doe</p>
-                                <a class="serif italic" href="#" title="View profile page">View profile
-                                    page &raquo;</a>
-                            </div>
-                            <!-- .home-agents -->
-                        </div>
-                        <div class="span2">
-                            <div class="home-agents widget">
-                                <a class="overlay" href="#" title="agent name">
-                                    <span class="more"></span>
-                                    <img alt="image" class="media-object" src="images/agent-02.jpg" />
-                                </a>
-                                <p class="home-agent-name">Susan Underwood</p>
-                                <a class="serif italic" href="#" title="View profile page">View profile
-                                    page &raquo;</a>
-                            </div>
-                            <!-- .home-agents -->
-                        </div>
-                        <div class="span2">
-                            <div class="home-agents widget">
-                                <a class="overlay" href="#" title="agent name">
-                                    <span class="more"></span>
-                                    <img alt="image" class="media-object" src="images/agent-06.jpg" />
-                                </a>
-                                <p class="home-agent-name">Erik Peterson</p>
-                                <a class="serif italic" href="#" title="View profile page">View profile
-                                    page &raquo;</a>
-                            </div>
-                            <!-- .home-agents -->
-                        </div>
-                        <div class="span2">
-                            <div class="home-agents widget">
-                                <a class="overlay" href="#" title="agent name">
-                                    <span class="more"></span>
-                                    <img alt="image" class="media-object" src="images/agent-07.jpg" />
-                                </a>
-                                <p class="home-agent-name">Lu Jackson</p>
-                                <a class="serif italic" href="#" title="View profile page">View profile
-                                    page &raquo;</a>
-                            </div>
-                            <!-- .home-agents -->
-                        </div>
-                    </div>
-                </div>
-                <!-- .span8  -->
-                <div class="span4">
-                    <div class="home-blog-articles widget">
-                        <h2 class="secion-title">Articles from the Blog</h2>
-                        <ul>
-                            <li>
-                                <i class="icon-caret-right"></i>
-                                <a title="title" href="#">Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing</a></li>
-                            <li>
-                                <i class="icon-caret-right"></i>
-                                <a title="title" href="#">Duis suscipit venenatis pellentesque tempor
-                                    libero</a></li>
-                            <li>
-                                <i class="icon-caret-right"></i>
-                                <a title="title" href="#">Etiam aliquet aliquam metus in tristique</a></li>
-                            <li>
-                                <i class="icon-caret-right"></i>
-                                <a title="title" href="#">Cras venenatis pellentesque venenatis
-                                    pellentesque</a></li>
-                            <li>
-                                <i class="icon-caret-right"></i>
-                                <a title="title" href="#">Vivamus vitae venenatis pellentesque nunc sed
-                                    nisl</a></li>
-                            <li>
-                                <i class="icon-caret-right"></i>
-                                <a title="title" href="#">In tempus venenatis pellentesquetempor</a></li>
-                            <li>
-                                <i class="icon-caret-right"></i>
-                                <a title="title" href="#">Suspendisse vulputate venenatis pellentesque
-                                    quis</a></li>
-                        </ul>
+
+                   
+               
                     </div>
                 </div>
                 <!-- .span4  -->
