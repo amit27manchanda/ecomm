@@ -1,7 +1,39 @@
 <%= render 'layouts/header' %>
-<% @products.each do |product| %>
-<%= link_to product.name, product %>
+<div class="container page-content">
+  <div class="row">
+    <div class="span12">
+      <div class="row">
+        <% @products.each do |product| %>
+        <div class="span4 box-container">
+        <div class="holder">
+        <a class="overlay" href="#" title="property title">
+        <span class="more"></span>
+        <%= link_to image_tag(product.image_url(:thumb)), product %>
+        </a>
+        <span class="prop-tag">Buy</span>
+        <div class="prop-info">
+        <h3 class="prop-title">
+        <%= link_to product.name, product %>
+        </h3>
+        <ul class="more-info clearfix">
+        <li class="info-label clearfix">
+        <span class="pull-left">Category:</span>
+        <span class="qty pull-right"><%= product.category %></span>
+        </li>
+        <li class="info-label clearfix">
+        <span class="pull-left">Price:</span>
+        <span class="qty pull-right"><%= product.price %></span>
+        </li>
+        </ul>
+    </div>
+  </div>
+</div>
 <% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
 <%= render 'layouts/footer' %>
 
 
