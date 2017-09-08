@@ -50,9 +50,9 @@
          <tbody>
        <% @reviews.each do |review| %>
        <tr>
-       <td><h5><%= "#{review.user.email.downcase}" %></h5></td>
+       <td><h5><%= review.comment %></h5></td>
        <td><div class="star-rating" data-score=<%= review.rating %>></div>
-       <%= review.comment%>
+       <%= "#{review.user.email.downcase}"%>
        </td>
        </tr>
        <% end %>

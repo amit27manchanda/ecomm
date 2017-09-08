@@ -57,7 +57,7 @@ h5 {
 	font-size: 14px;
 	font-weight: 200;
 	line-height: 18px;
-	text-transform: uppercase;
+	text-transform: lowercase;
 	color: #363636;
 	margin: 20px 0;
 }
@@ -69,6 +69,7 @@ h6 {
 	font-weight: 200;
 	margin: 20px 0;
 }
+
 iframe {
 	border: none;
 	margin: 0;
