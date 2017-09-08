@@ -22,7 +22,7 @@
         </li>
         <li class="info-label clearfix">
         <span class="pull-left">Price:</span>
-        <span class="qty pull-right"><%= product.price %></span>
+        <span class="qty pull-right"><%= number_to_currency product.price , unit: "INR", format: '%u  %n' %></span>
         </li>
         <li class="info-label clearfix">
         <span class="pull-left">Review:</span>

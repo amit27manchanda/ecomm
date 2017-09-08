@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
 	def index
-      
+      @product=Product.all
    end
    
    def new
@@ -30,6 +30,24 @@ end
    def search
       @products= Product.search(params)
    end
+
+   def edit
+      @product=Product.find(params[:id])
+   end
+
+   def update
+      @product=Product.find(params[:id])
+      @product.update(product_params)
+      redirect_to @product
+   end
+
+   def destroy
+    @product= Product.find(params[:id])
+    @product.destroy
+    redirect_to @product, :notice => "Your product has been deleted"
+   end
+
+
 
    private
    def product_params
