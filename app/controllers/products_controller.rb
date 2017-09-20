@@ -1,9 +1,11 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-	def index
+
+   def index
       @product=Product.all
    end
-   
+
    def new
    	@product = Product.new
    end
@@ -18,8 +20,8 @@ class ProductsController < ApplicationController
 end
 
    def show
-   	@product= Product.find(params[:id])
       @reviews= Review.where(product_id: @product)
+      @questions= Question.where(product_id: @product)
       if @reviews.blank?
          @avg_rating = 0
       else
@@ -32,25 +34,32 @@ end
    end
 
    def edit
-      @product=Product.find(params[:id])
    end
 
    def update
-      @product=Product.find(params[:id])
       @product.update(product_params)
       redirect_to @product
    end
 
    def destroy
-    @product= Product.find(params[:id])
     @product.destroy
-    redirect_to @product, :notice => "Your product has been deleted"
+    redirect_to @product
+   end
+
+   def add_to_cart
+    @product= Product.find(params[:id])
+    @cart.cart_items.create(product_id: @product.id, quantity: 1)
+    redirect_to @cart
    end
 
 
-
    private
+
+   def set_product
+      @product = Product.find(params[:id])
+    end
+
    def product_params
-   	params.require(:product).permit(:name, :description, :price, :category, :image)
+   	params.require(:product).permit(:name, :description, :price, :category, :image, :stock)
    end
 end

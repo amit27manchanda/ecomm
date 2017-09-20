@@ -1,0 +1,10 @@
+<p3>A: <%= answer.content %></p3></br>
+<p4><%= time_ago_in_words(answer.created_at) %> ago by <%= answer.user.email %></p4>&nbsp&nbsp&nbsp
+<% if can? :destroy,answer %>
+<%= link_to [@product, answer.question, answer], method: :delete do%><i class="icon icon-trash"></i><% end %>
+<% end %>
+<% if can? :update,answer %>
+<%= link_to edit_product_question_answer_path(@product, answer.question, answer) do%><i class="icon icon-pencil"></i><% end %>
+<% end %></br>
+
+

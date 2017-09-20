@@ -1,0 +1,30 @@
+<%= render 'layouts/header' %></br>
+<div class="container">
+<div class="row">
+<div class="col-sm-6">
+<div style="background-color: white;">
+<p3>&nbsp<strong>Q:</strong> <%= @question.content %></p3>
+<% if can? :update, @question %>
+<%= link_to edit_product_question_path(@product,@question) do %>
+<i class="icon icon-pencil icon-large"></i><% end %>
+<% end %>&nbsp&nbsp&nbsp&nbsp
+<%= link_to product_questions_path(@product) do %><i class="icon icon-home icon-large"></i><% end %><br>
+<p3>&nbspA: </p3>
+
+<hr>
+</div>
+</div>
+</div>
+</div>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<%= render 'layouts/footer' %>

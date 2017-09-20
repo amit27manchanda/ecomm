@@ -1,0 +1,72 @@
+<head>
+<style>
+p3 {
+	font-size: 20px;
+	font-weight: 200;
+	line-height: 40px;
+	text-transform: capitalize;
+	margin: 10px 0 20px;
+	color: blue;
+}
+td {
+	font-size: 18px;
+	font-weight: 200;
+	color: red;
+}
+</style>
+</head>
+<%= render 'layouts/header' %>
+<div class="container">
+<p1>Checkout</p1>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Product Name </th>
+<th>Quantity</th>
+<th>Price</th>
+<th>Total</th>
+<th>Actions</th>
+</tr>
+<tbody>
+<% @cart.cart_items.each do |cart_item| %>
+<tr>
+<th><%= image_tag cart_item.product.image_url(:small) %>
+<%= link_to cart_item.product.name.capitalize, product_path(cart_item.product_id) %>
+</th>
+
+<th><%= link_to "+", increase_cart_item_path(product_id: cart_item.product), class:"btn btn-danger" %>
+<%= cart_item.quantity %> &times; <%= cart_item.product.name %>
+<%= link_to "-", decrease_cart_item_path(product_id: cart_item.product), class:"btn btn-danger" %>
+</th>
+<th><%= number_to_currency cart_item.product.price,unit:"INR", format: '%u %n' %> </th>
+<th><%= number_to_currency cart_item.total_price ,unit:"INR", format: '%u %n'%> </th>
+<th><%= link_to cart_item_path(cart_item), method: :delete do%><i class="icon-trash icon-large"></i><% end %></th>
+</tr>
+<% end %>
+</tbody>
+<tr>
+	<td><strong>Total</strong></td>
+	<td></td>
+	<td></td>
+	<td> <strong><%= number_to_currency @cart.total_price,unit:"INR", format: '%u %n' %></strong></td>
+	<td><% if @cart_items.present? %>
+	<%= link_to "Add more products", products_path, class: "btn btn-success" %>
+	<% else %>
+	<%= link_to "Add Products", products_path, class: "btn btn-primary" %><% end %></td>
+	
+
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><% if @cart_items.present? %>
+<%= link_to "Checkout", new_order_path(@order),class: "btn btn-primary"%>
+	<% else %><% end %>
+</td>
+</tr>
+</thead>
+</table>
+</div>
+<%= render 'layouts/footer' %>

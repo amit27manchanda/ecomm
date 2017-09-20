@@ -8,6 +8,8 @@
   <%= f.text_field :name, :placeholder => "Name"%>
   <%= f.label :price %>
   <%= f.text_field :price, :placeholder => "Price" %></br>
+  <%= f.label :stock %>
+  <%= f.number_field :stock, :placeholder => "1,2,3 etc." %></br>
   <%= f.label :Category %>
   <%= f.collection_select :category, Product::CATEGORY, :to_s, :humanize, :prompt => "Select One"%></br>
   <%= f.label :Description%>

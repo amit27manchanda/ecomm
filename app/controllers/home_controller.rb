@@ -3,9 +3,9 @@ class HomeController < ApplicationController
   	@products= Product.all
   end
 
+  
   def about_us
-  end 
-
+  end
 
   def contact_us
   end

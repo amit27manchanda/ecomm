@@ -6,5 +6,8 @@ class User < ApplicationRecord
 
   ROLES = %w[customer inventory_manager].freeze    
 
-  has_many :reviews  
+  has_many :reviews 
+  has_many :questions
+  has_many :answers
+
 end

@@ -1,0 +1,37 @@
+<%= render 'layouts/header' %></br>
+<div class="container">
+<div class="row">
+<div class="col-lg-6">
+<%= link_to 'New Question', new_product_question_path, class: "btn btn-small btn-realto"%>
+<% @product.questions.each do |question| %>
+<div style="background-color: white;">
+<p3>Q: <%= link_to product_question_path(@product, question) do %><%= question.content %><% end %></p3></br>
+ <p4><%= time_ago_in_words(question.created_at) %> ago by <%= question.user.email %></p4>
+<% if can? :update,question %>
+<%= link_to edit_product_question_path(@product,question) do%><i class="icon icon-pencil icon-large"></i><% end %>
+ <% end %>
+<% if can? :destroy,question %>
+<%= link_to [@product,question], method: :delete, data: { confirm: 'Are you sure?' } do %><i class="icon icon-trash icon-large"></i><% end %>
+ <% end %></br>
+ <% if question.answers.any? %>
+<h2> Answers</h2>
+<%= render question.answers %>
+<% end %>
+<p3>A: </p3>
+<%= form_for ([question, question.answers.build]) do |f| %>
+<%= f.text_area :content %>
+<%= submit_tag "Add" %>
+<% end %>
+<hr>
+</div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</br>
+</br>
+</br>
+
+
+<%= render 'layouts/footer' %>

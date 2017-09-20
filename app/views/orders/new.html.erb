@@ -1,0 +1,21 @@
+<%= render 'layouts/header' %>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<div style="margin: 30px 20px;">
+<%= form_for @order do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :placeholder => "Name"%>
+  <%= f.label :address %>
+  <%= f.text_area  :address, :placeholder => "New Delhi, Mumbai...." %></br>
+  <%= f.label :Mobile_Number %>
+  <%= f.number_field :mobile_number, :placeholder => "12345678 etc." %></br>
+  <div style="margin: 10px 0 0 0;">
+  <%= f.submit "Confirm Order", class: "btn btn-primary"%>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+<%= render 'layouts/footer' %>

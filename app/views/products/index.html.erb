@@ -25,6 +25,10 @@
         <span class="qty pull-right"><%= number_to_currency product.price , unit: "INR", format: '%u  %n' %></span>
         </li>
         <li class="info-label clearfix">
+        <span class="pull-left">Stock:</span>
+        <span class="qty pull-right"><%= product.stock %></span>
+        </li>
+        <li class="info-label clearfix">
         <span class="pull-left">Review:</span>
         <% if product.reviews.present? %>
         <span class="qty pull-right star-rating" data-score=<%= product.reviews.average(:rating) %>></span>

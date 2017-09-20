@@ -76,6 +76,10 @@
    <span class="qty pull-right"><%= product.price %></span>
    </li>
    <li class="info-label clearfix">
+   <span class="pull-left">Stock:</span>
+   <span class="qty pull-right"><%= product.stock %></span>
+   </li>
+   <li class="info-label clearfix">
         <span class="pull-left">Review:</span>
         <% if product.reviews.present? %>
         <span class="qty pull-right star-rating" data-score=<%= product.reviews.average(:rating) %>></span>
@@ -92,7 +96,7 @@
   
    <div class="item">
   <ul class="thumbnails">
-  <%= @products.order(:id).reverse_order.limit(3).offset(3).each do |product| %>
+  <% @products.order(:id).reverse_order.limit(3).offset(3).each do |product| %>
   <li class="span4 box-container">
   <div class="holder">
   <a class="overlay" title="property title" href="#">

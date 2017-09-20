@@ -69,7 +69,14 @@ h6 {
 	font-weight: 200;
 	margin: 20px 0;
 }
-
+p1 {
+	font-size: 30px;
+	font-weight: 200;
+	line-height: 70px;
+	text-transform: capitalize;
+	margin: 10px 0 20px;
+	color: blue;
+}
 iframe {
 	border: none;
 	margin: 0;

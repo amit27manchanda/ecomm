@@ -3,15 +3,15 @@
      <div class="row">
      <div class="span8">
      <div class="box-container">
-       <div class="cycle-slideshow">
-       <%= image_tag @product.image_url(:large) %>
-       </div>
+     <div class="cycle-slideshow">
+     <%= image_tag @product.image_url(:large) %>
+     </div>
      <div id="adv-custom-pager"></div>
      <div class="clearfix">
        <div class="clearfix padding30">
         <h2 class="prop-title pull-left margin0"><%= @product.name %></h2>&nbsp&nbsp
         <%= link_to edit_product_path(@product) do %><i class="icon-pencil icon-large"></i><% end %>&nbsp&nbsp
-        <%= link_to product_path(@product), method: :delete do %><i class="icon-trash icon-large"></i><% end %>
+        <%= link_to product_path(@product), method: :delete, data: {confirm: 'Are you sure'} do %><i class="icon-trash icon-large"></i><% end %>
         <span class="prop-price pull-right serif italic star-rating" data-score=<%= @avg_rating %>></span>
        </div>
      <div class="clearfix padding030 row-fluid">
@@ -20,11 +20,15 @@
             <span class="pull-left">Price:</span>
             <span class="qty pull-right"><%= number_to_currency @product.price , unit: "INR", format: '%u  %n' %></span>
           </li>
-        </ul>
-        <ul class="more-info pull-right span6">
           <li class="info-label clearfix">
             <span class="pull-left">Category:</span>
             <span class="qty pull-right"><%= @product.category %></span>
+          </li>
+        </ul>
+        <ul class="more-info pull-right span6">
+          <li class="info-label clearfix">
+            <span class="pull-left">Stock:</span>
+            <span class="qty pull-right"><%= @product.stock %></span>
           </li>
         </ul>
         <ul class="more-info pull-right span12">
@@ -63,15 +67,40 @@
      </div>
      </div>
      </div>
-        <!-- .span8 -->
+      <!-- .span8 -->
      <div class="span4">
-       <div class="agent-box widget box-container clearfix padding30">
-         <a class="btn btn-large btn-realto span2" href="#" title="Buy It Now">Buy It Now!</a>
-         </div>
-       </div>
+     <div class="agent-box widget box-container clearfix padding30">
+     <% if @product.stock.zero? %>
+     <button class="btn btn-large btn-danger span 2">Out of Stock </button>
+     <% else %>
+     <%= link_to "Add to Cart", cart_items_path(product_id: @product), :class => "btn btn-large btn-realto span2" %>
+     <% end %>
+     
      </div>
      </div>
-<div>
+     <div class="span4">
+      <div class="agent-box widget box-container clearfix padding30">
+      <h4> Frequently Asked Questions </h4>
+      <%= link_to "See all Questions", product_questions_path(@product), :class=>"btn btn-small btn-realto" %><br>
+      <% if @questions.blank? %>
+      <p3>No Questions </p3>
+      <% else %>
+      <% @product.questions.each do |question| %>
+      <p3>Q: <%= question.content %></p3></br>
+      <p4><%= time_ago_in_words(question.created_at) %> ago by <%= question.user.email %></p4></br>
+       <%= render question.answers %></br>
+       <hr>
+      <% end %>
+      <% end %>
+
+      </div>
+      </div
+     
+     
+     </div>
+     </div>
+     </div>
+     </div>
 <script>
     $('.star-rating').raty({
       path: '/assets/',
